@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>Javascript Lessons</p>
+    <div id="box"></div>
+    <script>
+      var a = "hello world";
+      const b = 25;
+      console.log(a);
+      console.log(b);
+      document.write("hello world1");
+      console.log("Hello world2");
+
+      document.getElementById("box").innerHTML = "hello world4";
+      let name = new String("nihan");
+      let number = new Number(5);
+      let number2 = new Number(10);
+      let hasProduct = new Boolean(true);
+      let names = new Array("ahmet", "mehmet", "hasan");
+      let number3 = BigInt(10000000);
+      let null_datatype = null;
+      let undefined_datatype = undefined;
+      let now_date = new Date();
+      let product = { name: "kalem", price: 10.9, stock: 20 };
+      //   good way
+      console.log(`${product.name}-${product.price}-${product.stock}`);
+      //bad way
+      console.log(product.name + "-" + product.price);
+      //   console.log("date :"+ now_date.getDay()+ "/" + now_date.getMonth());
+      console.log("product typeof:" + typeof product);
+      console.log("typeof bigInt:" + typeof number3);
+      console.log("typeof null :" + typeof null_datatype);
+      console.log("typeof undefined :" + typeof undefined_datatype);
+      console.log(names[0]);
+      console.log(names[1]);
+      console.log(names[2]);
+      console.log(number + number2);
+      console.log(name + number);
+      if (hasProduct == true) {
+        console.log("ürün var");
+      } else {
+        console.log("ürün yok");
+      }
+
+    
+    </script>
+  </body>
+</html>
