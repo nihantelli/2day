@@ -1,0 +1,12 @@
+body {
+  background-color: bisque;
+}
+input {
+  border: 1px solid rgb(12, 12, 12);
+}
+input[type="password"] {
+  border: 1px solid red;
+}
+select {
+  border: 2px dashed blue;
+}
