@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        background-color: red;
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      onclick="mouseClickEvent()"
+      onmouseover="mouseOverEvent()"
+      onmouseout="mouseOutEvent()"
+      onmouseup="mouseUpEvent()"
+      onmousedown="mouseDownEvent()"
+      onmousemove="mouseMoveEvent()"
+    ></div>
+    <input id="txtNumber" type="number" value="0" />
+    <button onclick="increaseCount()" id="btn1">Arttır</button>
+
+    <script>
+      function mouseClickEvent() {
+        console.log("mouse click");
+      }
+      function mouseOverEvent() {
+        console.log("mouse over");
+      }
+      function mouseOutEvent() {
+        console.log("mouse out");
+      }
+      function mouseUpEvent() {
+        console.log("mouse up");
+      }
+      function mouseDownEvent() {
+        console.log("mouse down");
+      }
+      function mouseMoveEvent() {
+        console.log("mouse move");
+      }
+      var i = 0;
+      function increaseCount() {
+        i++;
+        console.log(i);
+        document.getElementById("txtNumber").value = i;
+        // document.getElementById("txtNumber").value++;
+      }
+    </script>
+  </body>
+</html>
