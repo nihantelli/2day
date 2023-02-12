@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URUN KAYIT FORMU</title>
+    <link rel="stylesheet" href="./css/bootstrap.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <!-- SİLME BUTONUNA TIKLANINCA GÖZÜKECEK ONAY MODALI -->
+    <div
+      class="modal fade"
+      id="acceptModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              Ürünü silmek istiyor musunuz?
+            </h1>
+          </div>
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              id="btnAccept"
+              onclick="acceptDelete()"
+              class="btn btn-danger btn-accept"
+              data-bs-dismiss="modal"
+            >
+              EVET
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              HAYIR
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- İÇERİK -->
+    <div id="container" class="all-content">
+      <div class="row my-5">
+        <div class="form-side col-md-6 col-sm-12 col-lg-6">
+          <div class="card shadow-lg form-side">
+            <div class="card-body">
+              <!-- BAŞLIK -->
+              <h3 class="main-title text-center">ÜRÜN KAYIT FORMU</h3>
+              <!-- FORM ELEMANLARI  -->
+              <form id="form">
+                <div class="my-3 d-flex">
+                  <label for="txtName" class="form-label label-txt"
+                    >Ürün Adı:</label
+                  >
+                  <input type="text" class="form-control" id="txtName" />
+                </div>
+                <div class="mb-3 d-flex">
+                  <label for="txtPrice" class="form-label label-txt"
+                    >Ürün Fiyatı:</label
+                  >
+                  <input type="text" class="form-control" id="txtPrice" />
+                </div>
+                <div class="mb-3 d-flex">
+                  <label for="colorCheckbox" class="form-label label-txt"
+                    >Ürün Rengi:</label
+                  >
+                  <select class="form-control" id="colorCheckbox">
+                    <option value="0">Seçiniz</option>
+                    <option value="1">KIRMIZI</option>
+                    <option value="2">MAVİ</option>
+                    <option value="3">YEŞİL</option>
+                    <option value="4">SARI</option>
+                    <option value="5">SİYAH</option>
+                    <option value="6">BEYAZ</option>
+                  </select>
+                </div>
+                <!-- CHECKBOX -->
+                <div class="mb-3 d-flex form-check">
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    id="checkPublish"
+                  />
+                  <label
+                    class="form-check-label label-txt ms-2"
+                    for="checkPublish"
+                    >Yayınlansın mı?</label
+                  >
+                </div>
+                <!-- RADIO BUTTONS -->
+                <div class="mb-3 d-flex">
+                  <p class="label-txt">Yayınlanma Süresini Seçiniz:</p>
+                  <div class="d-flex">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        value="15"
+                        type="radio"
+                        name="radioPublishDay"
+                      />
+                      <label class="form-check-label" for="flexRadioDefault1">
+                        15 gün
+                      </label>
+                    </div>
+                    <div class="form-check ms-2">
+                      <input
+                        value="30"
+                        class="form-check-input"
+                        type="radio"
+                        name="radioPublishDay"
+                      />
+                      <label class="form-check-label" for="flexRadioDefault2">
+                        30 gün
+                      </label>
+                    </div>
+                    <div class="form-check ms-2">
+                      <input
+                        class="form-check-input"
+                        value="45"
+                        type="radio"
+                        name="radioPublishDay"
+                      />
+                      <label class="form-check-label" for="flexRadioDefault2">
+                        45 gün
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <!-- BUTONLAR- -->
+                <div class="d-flex justify-content-end">
+                  <!-- duruma göre kaydetme butonu veya güncelleme butonu gözükecek -->
+                  <button
+                    id="btnSave"
+                    onclick="addProduct()"
+                    type="button"
+                    class="btn btn-sm me-3 btn-add"
+                  >
+                    Kaydet
+                  </button>
+                  <button
+                    id="btnUpdate-table"
+                    onclick="updateProduct()"
+                    type="button"
+                    class="btn btn-sm me-3 btn-edit"
+                  >
+                    Güncelle
+                  </button>
+
+                  <button
+                    id="btnReset"
+                    onclick="resetForm()"
+                    type="reset"
+                    class="btn btn-sm btn-clear"
+                  >
+                    Temizle
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- ÜRÜNLERİN LİSTELENMESİ, TABLE -->
+        <div
+          class="edit-side col-md-6 col-sm-12 col-lg-6 shadow-lg position-relative"
+        >
+          <table class="table mt-2">
+            <thead>
+              <tr class="table-titles text-center">
+                <th>İSİM</th>
+
+                <th>FİYAT</th>
+
+                <th>RENK</th>
+
+                <th>YAYINDA MI?</th>
+
+                <th>YAYIN SÜRESİ(GÜN)</th>
+                <!-- YER TUTACAK -->
+                <th class="opacity-0">düzenle</th>
+                <th class="opacity-0">sil</th>
+              </tr>
+            </thead>
+            <!-- EKLENECEK OLAN ÜRÜN BİLGİSİNİN YER ALACAĞI HTML TAGİ (JS ÜZERİNDEN, DOM) -->
+            <tbody id="productTable"></tbody>
+          </table>
+          <!-- ÜRÜN ADEDİNİN EKLENECEĞİ HTML TAGİ (JS ÜZERİNDEN, DOM) -->
+          <div id="productCount" class="countBox ">Henüz ürün eklenmedi.</div>
+        </div>
+      </div>
+      <!-- ALERT KUTUCUKLARI -->
+      <div id="result alert-section">
+        <div
+          id="addAlert"
+          class="alert alert-success custom-hide text-center"
+          role="alert"
+        >
+          Ürün başarıyla kaydedildi.
+        </div>
+        <div
+          id="failAlert"
+          class="alert alert-danger custom-hide text-center"
+          role="alert"
+        >
+          Bir hata meydana geldi.
+        </div>
+        <div
+          id="editAlert"
+          class="alert alert-info custom-hide text-center"
+          role="alert"
+        >
+          Ürün başarıyla güncellendi.
+        </div>
+        <div
+          id="deleteAlert"
+          class="alert alert-warning custom-hide text-center"
+          role="alert"
+        >
+          Ürün başarıyla silindi.
+        </div>
+      </div>
+      <!-- VALIDATION POP-UP -->
+
+      <div
+        id="nameValidation"
+        class="text-center alert alert-danger custom-hide"
+      >
+        Ürün adı 3-10 karakter arasında olmalıdır.
+      </div>
+      <div
+        id="priceValidation"
+        class="text-center alert alert-danger custom-hide"
+      >
+        Ürün fiyatı 100-5000 TL arasında olmalıdır.
+      </div>
+      <div
+        id="colorValidation"
+        class="text-center alert alert-danger custom-hide"
+      >
+        Renk seçimi zorunludur.
+      </div>
+      <div
+        id="dayValidation"
+        class="text-center alert alert-danger custom-hide"
+      >
+        Yayınlanma süresi seçimi zorunludur.
+      </div>
+    </div>
+    <!-- SCRIPT DOSYAMI AYRI TUTTUM ÇOK UZUN OLUYORDU -->
+    <script src="./js/script.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+  </body>
+</html>
