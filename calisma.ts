@@ -10,8 +10,8 @@ class User {
     this.age = age;
   }
 }
-class UserList implements IUserRepository {
-  GetAllPerson(): User[] {
+class UserList implements IUserInterface {
+  GetAllUser(): User[] {
     let userList: User[] = [];
     userList.push(new User(1, "nihan", "telli", 26));
     userList.push(new User(2, "filiz", "telli", 50));
@@ -19,9 +19,8 @@ class UserList implements IUserRepository {
     return userList;
   }
 }
-class UserListRepositoryWithSQL implements IUserRepository {
-  GetAllPerson(): User[] {
-    // sql server
+class UserListWithSQL implements IUserInterface {
+  GetAllUser(): User[] {
     let userList: User[] = [];
     userList.push(new User(1, "SQL-nihan", "telli", 26));
     userList.push(new User(2, "SQL-filiz", "telli", 50));
@@ -29,33 +28,33 @@ class UserListRepositoryWithSQL implements IUserRepository {
     return userList;
   }
 }
-interface IUserRepository {
-  GetAllPerson(): User[];
+interface IUserInterface {
+  GetAllUser(): User[];
 }
 class UserService {
-  private _userRepository: IUserRepository;
-  constructor(userRepository: IUserRepository) {
+  private _userRepository: IUserInterface;
+  constructor(userRepository: IUserInterface) {
     this._userRepository = userRepository;
   }
 
-  GetAllPerson(): User[] {
+  GetAllUser(): User[] {
     let newUserList: User[] = [];
-    this._userRepository.GetAllPerson().forEach((user) => {
+    this._userRepository.GetAllUser().forEach((user) => {
       newUserList.push(new User(user.id, user.name, user.name, user.age));
     });
     return newUserList;
   }
 }
 class UserFactory {
-  public CreateUserList(): IUserRepository {
+  public CreateUserList(): IUserInterface {
     return new UserList();
   }
 
-  public UserListRepositoryWithSQL(): IUserRepository {
+  public UserListWithSQL(): IUserInterface {
     return new UserList();
   }
 }
 var userService = new UserService(new UserFactory().CreateUserList());
-userService.GetAllPerson().forEach((x) => {
+userService.GetAllUser().forEach((x) => {
   console.log(`${x.id} ${x.name}${x.surname} ${x.age}`);
 });
