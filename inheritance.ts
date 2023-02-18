@@ -17,11 +17,9 @@ class JuniorDevPerson extends Person {
     this.age = age;
   }
 }
-var jun = new JuniorDevPerson(1, "NİHAN", 25);
-console.log(jun);
+
 class MidDevPerson extends Person {}
 class SeniorDevPerson extends Person {}
 
 var mid = new MidDevPerson("ahmet");
-mid.name = "nihan";
-console.log(mid);
+var person = new Person("mehmet");
