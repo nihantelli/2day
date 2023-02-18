@@ -5,4 +5,6 @@ namespace Product {
   class B {
     method2() {}
   }
+
+  export enum enumType {}
 }

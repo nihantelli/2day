@@ -9,6 +9,6 @@ class SalaryCalculate {
     return "salary";
   }
 }
-var calculate2 = new SalaryCalculate();
-console.log(calculate2.getSalary(1, 2));
-console.log(calculate2.getSalary("ahmet", "mehmet"));
+var calculate = new SalaryCalculate();
+console.log(calculate.getSalary(1, 2));
+console.log(calculate.getSalary("ahmet", "mehmet"));

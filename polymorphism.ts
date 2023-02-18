@@ -65,3 +65,11 @@ console.log(
 basePerson = senior;
 
 console.log(`base person maaş hesaplama ${basePerson.calculateSalary()}`);
+// var person5: person = new person();
+// person5.id = 5;
+// person5.name = "mehmet";
+// person5.childCount = 2;
+// person5.salary = 2000;
+
+// // doğru yaklaşım değil.
+// //let mid5:  JuniorDevPerson = person5;
