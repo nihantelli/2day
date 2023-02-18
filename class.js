@@ -1,3 +1,4 @@
+"use strict";
 class Vehicle {
   constructor(name, maker, engine) {
     this.name = name;
