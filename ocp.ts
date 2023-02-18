@@ -3,28 +3,34 @@ enum SalaryType {
   Mid,
   Low,
 }
+
 interface ISalaryCalculate {
   calculate(salary: number): number;
 }
+
 class HighSalaryCalculate implements ISalaryCalculate {
   calculate(salary: number): number {
     return salary * 10;
   }
 }
+
 class LowSalaryCalculate implements ISalaryCalculate {
   calculate(salary: number): number {
     return salary * 5;
   }
 }
+
 class MidSalaryCalculate implements ISalaryCalculate {
   calculate(salary: number): number {
     return salary * 7;
   }
 }
+
 class SalaryCalculate {
   calculateGood(salary: number, salaryCalculate: ISalaryCalculate) {
     return salaryCalculate.calculate(salary);
   }
+
   CalculateBad(salary: number, salaryType: SalaryType): number {
     let sumSalary = 0;
     switch (salaryType) {
@@ -37,45 +43,45 @@ class SalaryCalculate {
       default:
         break;
     }
+
     return sumSalary;
   }
 }
+
 var salaryCalculate = new SalaryCalculate();
-//bad
-console.log(`high ${salaryCalculate.CalculateBad(1000, SalaryType.High)}`);
-console.log(`low ${salaryCalculate.CalculateBad(1000, SalaryType.Low)}`);
-//good
+//Bad
+// console.log(`high ${ salaryCalculate.CalculateBad(1000,SalaryType.High)}`)
+// console.log(`low ${ salaryCalculate.CalculateBad(1000,SalaryType.Low)}`)
+//Good
+
 interface ISalaryKeyValue {
   salaryType: SalaryType;
-  salaryCalculate: ISalaryCalculate;
+  SalaryCalculate: ISalaryCalculate;
 }
-let externalSalaryType: SalaryType.High;
-let externalsalary = 2000;
-let salaryArray: ISalaryKeyValue[] = []; //tuple nesnesi, key ve valuesi var
+
+let externalSalaryType = SalaryType.High;
+let externalSalary = 2000;
+
+let salaryArray: ISalaryKeyValue[] = [];
+
 salaryArray.push({
   salaryType: SalaryType.High,
-  salaryCalculate: new HighSalaryCalculate(),
+  SalaryCalculate: new HighSalaryCalculate(),
 });
 salaryArray.push({
   salaryType: SalaryType.Mid,
-  salaryCalculate: new MidSalaryCalculate(),
+  SalaryCalculate: new MidSalaryCalculate(),
 });
 salaryArray.push({
   salaryType: SalaryType.Low,
-  salaryCalculate: new LowSalaryCalculate(),
+  SalaryCalculate: new LowSalaryCalculate(),
 });
+
 let currentSalaryCalculate = salaryArray.find(
   (x) => x.salaryType == externalSalaryType
 );
-console.log(currentSalaryCalculate?.salaryCalculate.calculate(externalsalary));
+console.log(currentSalaryCalculate?.SalaryCalculate.calculate(externalSalary));
 
-console.log(
-  `high ${salaryCalculate.calculateGood(1000, new HighSalaryCalculate())}`
-);
-//calculate gooda gönderilen parametre HighSalaryCalculate classından oluşan nesne. ve onun altındaki calculate methodunu çalıştırdık
-console.log(
-  `low ${salaryCalculate.calculateGood(1000, new LowSalaryCalculate())}`
-);
-console.log(
-  `mid ${salaryCalculate.calculateGood(1000, new MidSalaryCalculate())}`
-);
+// console.log(`high ${ salaryCalculate.calculateGood(1000,new HighSalaryCalculate())}`)
+// console.log(`low ${ salaryCalculate.calculateGood(1000,new LowSalaryCalculate())}`)
+// console.log(`mid ${ salaryCalculate.calculateGood(1000,new MidSalaryCalculate())}`)
