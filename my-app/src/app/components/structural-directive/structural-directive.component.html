@@ -1,0 +1,29 @@
+<p>structural-directive works!</p>
+<!-- good way -->
+<button (click)="toggle()">aç-kapa</button>
+<!-- bad way -->
+<!-- <button (click)="toggleShow = !toggleShow">aç-kapa</button> -->
+<div *ngIf="toggleShow">aç-kapa içerik</div>
+<h2>ng for</h2>
+<ul [ngStyle]="{ 'background-color': productList.length > 5 ? 'red' : 'blue' }">
+  <li *ngFor="let p of productList">
+    {{ p.id }}{{ p.name }}{{ p.price
+    }}<button (click)="removeProduct(p.id)">Sil</button>
+  </li>
+</ul>
+<h2>NG Switch</h2>
+<div [ngSwitch]="messageCount">
+  <p *ngSwitchCase="1">deger1</p>
+  <p *ngSwitchCase="2">deger2</p>
+  <p *ngSwitchCase="3">deger3</p>
+  <p *ngSwitchDefault>default deger</p>
+</div>
+<h2>Ng class</h2>
+<button (click)="addClass()">class ekle</button>
+<div [ngClass]="'box box2 box3'"></div>
+<div [ngClass]="{ box: boxCss, box2: box2Css }">ng class</div>
+<div [ngClass]="{ 'box box2 box3': true }">ng class</div>
+<h2>Ng style</h2>
+<div
+  [ngStyle]="{ 'background-color': 'red', width: '100px', height: '200px' }"
+></div>

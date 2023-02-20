@@ -1,0 +1,5 @@
+<p>isimler</p>
+<!-- template variable -->
+<input type="text" #txtName />
+<button (click)="add(txtName.value)">Ekle</button>
+<div *ngFor="let name of names">{{ name }}</div>
