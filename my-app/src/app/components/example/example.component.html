@@ -2,4 +2,7 @@
 <!-- template variable -->
 <input type="text" #txtName />
 <button (click)="add(txtName.value)">Ekle</button>
-<div *ngFor="let name of names">{{ name }}</div>
+<div *ngFor="let name of names; let i = index">
+  {{ name }} <button (click)="remove(name)">sil</button>
+  <button (click)="txtName.value = name; indexToUpdate = i">Update</button>
+</div>
