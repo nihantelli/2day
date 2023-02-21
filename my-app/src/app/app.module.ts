@@ -11,6 +11,7 @@ import { ExamplePipeComponent } from './pipes/example-pipe/example-pipe.componen
 import { CustomUppercasePipe } from './pipes/custom-uppercase.pipe';
 import { CustomerModule } from './customer/customer.module';
 import { OrderModule } from './order/order.module';
+import { CustomTcPipe } from './pipes/custom-tc.pipe';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { OrderModule } from './order/order.module';
     CustomDirective,
     ExamplePipeComponent,
     CustomUppercasePipe,
+    CustomTcPipe,
   ],
   imports: [BrowserModule, AppRoutingModule, CustomerModule, OrderModule],
   providers: [],
