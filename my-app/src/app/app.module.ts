@@ -8,9 +8,10 @@ import { RealUserAPIServiceService } from './real-user-apiservice.service';
 import { FakeUserAPIServiceService } from './fake-user-apiservice.service';
 import { Helper } from './shared/helper';
 import { environment } from './environment/environment';
+import { ParentUserComponent } from './input-output-user/parent-user/parent-user.component';
 const IS_OKAY = true;
 @NgModule({
-  declarations: [AppComponent, ChildUserComponent, ChildUserDetailComponent],
+  declarations: [AppComponent, ChildUserComponent, ChildUserDetailComponent, ParentUserComponent],
   imports: [BrowserModule, AppRoutingModule],
   providers: [
     {
