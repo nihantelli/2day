@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Product } from '../../models/product';
-
+import { ProductRepository } from '../../product-repository';
 import { ProductService } from '../../product.service';
 import { RealProductAPIService } from '../../../real-product-api.service';
 
@@ -12,17 +12,19 @@ import { RealProductAPIService } from '../../../real-product-api.service';
 export class ParentProductComponent {
   productList: ReadonlyArray<Product>;
   selectedProduct: Product | undefined;
-
   constructor(
     private productService: ProductService,
-    private ProductService: RealProductAPIService
+    private productService2: RealProductAPIService
   ) {
     this.productList = this.productService.getAll();
-    console.log(this.productList);
+
+    console.log(productService2.getAll());
   }
+
   get toggleProductDetail() {
     return this.selectedProduct != undefined;
   }
+
   showDetail(productId: number) {
     this.selectedProduct = this.productService.getById(productId);
   }
