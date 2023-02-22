@@ -2,11 +2,25 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { ChildUserComponent } from './input-output-user/child-user/child-user.component';
+import { ChildUserDetailComponent } from './input-output-user/child-user-detail/child-user-detail.component';
+import { RealUserAPIServiceService } from './real-user-apiservice.service';
+import { FakeUserAPIServiceService } from './fake-user-apiservice.service';
+import { Helper } from './shared/helper';
+import { environment } from './environment/environment';
+const IS_OKAY = true;
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ChildUserComponent, ChildUserDetailComponent],
   imports: [BrowserModule, AppRoutingModule],
-  providers: [],
+  providers: [
+    {
+      provide: RealUserAPIServiceService,
+      useClass: IS_OKAY ? RealUserAPIServiceService : FakeUserAPIServiceService,
+    },
+    { provide: Helper, useClass: Helper },
+    { provide: 'BASE_API_URL', useValue: environment.baseUrl },
+    { provide: 'MENU_FEATURE', useValue: false },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

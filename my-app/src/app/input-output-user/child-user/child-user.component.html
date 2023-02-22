@@ -1,0 +1,15 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+      <ul *ngFor="let user of userList" class="list">
+        <li>{{ user.id }}</li>
+        <li>{{ user.name }}</li>
+        <li>{{ user.surname }}</li>
+        <li>{{ user.age }}</li>
+        <li>
+          <button (click)="userDetail(user.id)">Kullanıcı detayları</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
