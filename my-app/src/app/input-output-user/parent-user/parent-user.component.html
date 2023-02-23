@@ -1,7 +1,7 @@
-<p>parent-user works!</p>
+
 <app-child-user
   (detailShow)="userDetail($event)"
   [userList]="userList"
 ></app-child-user>
 
-<app-child-user-detail [selectedUser]="selectedUser"></app-child-user-detail>
+<app-child-user-detail *ngIf="toggleUserDetail" [selectedUser]="selectedUser"></app-child-user-detail>

@@ -13,4 +13,7 @@ export class ChildUserComponent {
     this.selectedId = id;
     this.detailShow.emit(this.selectedId);
   }
+  highlightRow(userId: number) {
+    return this.selectedId == userId;
+  }
 }

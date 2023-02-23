@@ -13,6 +13,9 @@ export class ParentUserComponent {
   constructor(private userService: UserService) {
     this.userList = this.userService.getAll();
   }
+  get toggleUserDetail() {
+    return this.selectedUser != undefined;
+  }
   userDetail(userId: number) {
     this.selectedUser = this.userService.getById(userId);
   }
