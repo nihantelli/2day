@@ -19,4 +19,7 @@ export class ParentUserComponent {
   userDetail(userId: number) {
     this.selectedUser = this.userService.getById(userId);
   }
+  close() {
+    this.selectedUser = undefined;
+  }
 }

@@ -1,2 +1,9 @@
-table{margin-left: 50%;}
-.selected{background-color: rgb(213, 212, 212);text-transform: uppercase; color: red;}
+table {
+  margin-left: 50%;
+}
+.selected {
+  background-color: rgb(213, 212, 212);
+  text-transform: uppercase;
+  color: red;
+}
+

@@ -11,14 +11,16 @@
           </tr>
         </thead>
         <tbody>
-          <tr [ngClass]="{'selected':highlightRow(user.id)}">
+          <tr [ngClass]="{ selected: highlightRow(user.id) }">
             <td>{{ user.id }}</td>
             <td>{{ user.name }}</td>
             <td>{{ user.surname }}</td>
             <td>{{ user.age }}</td>
+
             <td>
               <button (click)="userDetail(user.id)">Kullanıcı detayları</button>
             </td>
+         
           </tr>
         </tbody>
       </table>

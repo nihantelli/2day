@@ -6,9 +6,11 @@ import { User } from 'src/app/input-output-user/models/user';
   styleUrls: ['./child-user.component.css'],
 })
 export class ChildUserComponent {
-  selectedId: number | undefined;
+  @Input() selectedId: number | undefined;
+
   @Input() userList: ReadonlyArray<User> | undefined;
-  @Output() detailShow = new EventEmitter<number>();
+  @Output() detailShow= new EventEmitter<number>();
+
   userDetail(id: number) {
     this.selectedId = id;
     this.detailShow.emit(this.selectedId);
@@ -16,4 +18,5 @@ export class ChildUserComponent {
   highlightRow(userId: number) {
     return this.selectedId == userId;
   }
+  
 }
