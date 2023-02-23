@@ -9,6 +9,6 @@ export class ChildUserDetailComponent {
   @Input() selectedUser: User | undefined;
   @Output() closeEventClick = new EventEmitter();
   close() {
-    this.closeEventClick.emit;
+    this.closeEventClick.emit();
   }
 }
