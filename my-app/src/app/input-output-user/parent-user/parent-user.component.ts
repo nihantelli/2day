@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { User } from 'src/app/input-output-user/models/user';
 import { UserService } from '../user.service';
-import { RealUserAPIServiceService } from 'src/app/real-user-apiservice.service';
+
 @Component({
   selector: 'app-parent-user',
   templateUrl: './parent-user.component.html',
