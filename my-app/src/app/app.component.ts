@@ -31,6 +31,28 @@ export class AppComponent {
     this.fakeService.getPostsGood().subscribe((x) => {
       console.log(x);
     });
+    this.fakeService
+      .SavePostWithError({ id: 1, title: 'title1', body: 'body1', userId: 2 })
+      .subscribe({
+        next: (data) => console.log(data),
+        error: (err) => console.log(err),
+        complete: () => console.log('tamamlandı.'),
+      });
+    // this.fakeService.getPostsWithHeader().subscribe((x)=>console.log(x))
+    this.fakeService
+      .UpdatePut({ id: 1, title: 'title1', body: 'body1', userId: 2 })
+      .subscribe({
+        next: (data) => console.log(data),
+        error: (err) => console.log(err),
+        complete: () => console.log('tamamlandı.'),
+      });
+    // this.fakeService.deletePost(1).subscribe((x) => console.log(x));
+    // this.fakeService
+    //   .getParallelRequest()
+    //   .postObservable.subscribe((x) => console.log(x));
+    this.fakeService
+      .getParallelWithForkJoinOperator()
+      .subscribe((x) => console.log(x.posts));
   }
 }
 
