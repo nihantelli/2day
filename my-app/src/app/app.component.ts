@@ -28,6 +28,9 @@ export class AppComponent {
   title = 'my-app';
 
   constructor(private fakeService: FakeserviceService) {
+    this.fakeService.sendTodos(5).subscribe((x) => {
+      console.log(x);
+    });
     this.fakeService.getPostsGood().subscribe((x) => {
       console.log(x);
     });

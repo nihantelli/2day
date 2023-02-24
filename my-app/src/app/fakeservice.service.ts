@@ -11,14 +11,43 @@ import {
   switchMap,
   throwError,
 } from 'rxjs';
+import { Albums } from './models/albums';
 import { Post } from './models/post';
 import { Postupdate } from './models/postupdate';
+import { Todos } from './models/todos';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FakeserviceService {
   constructor(private httpClient: HttpClient) {}
+
+  sendTodos(id: number) {
+    return this.httpClient
+      .get<Todos[]>('https://jsonplaceholder.typicode.com/todos')
+      .pipe(
+        switchMap((x) => from(x)),
+        find((x) => x.userId == id),
+        switchMap((x) =>
+          this.httpClient.get<Albums[]>(
+            `https://jsonplaceholder.typicode.com/albums=${x?.id}`
+          )
+        )
+      );
+  }
+  getPostsWithUserId(id: number) {
+    return this.httpClient
+      .get<any[]>('https://jsonplaceholder.typicode.com/users')
+      .pipe(
+        switchMap((x) => from(x)),
+        find((x) => x.id == id),
+        switchMap((x) =>
+          this.httpClient.get<any[]>(
+            `https://jsonplaceholder.typicode.com/posts?userId= ${x.id}`
+          )
+        )
+      );
+  }
   getPosts() {
     let userId = 1;
     return this.httpClient
@@ -47,6 +76,7 @@ export class FakeserviceService {
       { headers: myheaders }
     );
   }
+
   SavePost(newPost: Post) {
     return this.httpClient.post<any>(
       'https://jsonplaceholder.typicode.com/posts',
@@ -70,19 +100,7 @@ export class FakeserviceService {
       {}
     );
   }
-  getPostsWithUserId(id: number) {
-    return this.httpClient
-      .get<any[]>('https://jsonplaceholder.typicode.com/users')
-      .pipe(
-        switchMap((x) => from(x)),
-        find((x) => x.id == id),
-        switchMap((x) =>
-          this.httpClient.get<any[]>(
-            `https://jsonplaceholder.typicode.com/posts?userId= ${x.id}`
-          )
-        )
-      );
-  }
+
   getParallelWithForkJoinOperator() {
     return forkJoin({
       posts: this.httpClient.get('https://jsonplaceholder.typicode.com/posts'),
