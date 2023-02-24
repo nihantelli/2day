@@ -1,0 +1,22 @@
+<div class="container-fluid">
+
+
+  <div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>User id:</th>
+          <th>User title:</th>
+          <th>User body:</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of post">
+          <td>{{ p.userId }}</td>
+          <td>{{ p.title }}</td>
+          <td>{{ p.body }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
