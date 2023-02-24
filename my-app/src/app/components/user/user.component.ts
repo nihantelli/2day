@@ -8,11 +8,16 @@ import { PostService } from 'src/app/post.service';
   styleUrls: ['./user.component.css'],
 })
 export class UserComponent {
+  loading: boolean = false;
   post: ReadonlyArray<Post> = [];
   constructor(private postService: PostService) {
     this.postService.getPost().subscribe((x) => (this.post = x));
   }
   search(search: number) {
-    this.postService.getPostById(search).subscribe((x) => (this.post = x));
+    this.loading = true;
+    this.postService.getPostById(search).subscribe((x) => {
+      this.post = x;
+      this.loading = false;
+    });
   }
 }
