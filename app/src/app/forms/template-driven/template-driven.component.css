@@ -1,0 +1,10 @@
+.ng-dirty[type="text"],
+[type="number"] {
+  background-color: rgb(186, 196, 186);
+}
+.invalid {
+  border: 2px solid red;
+}
+.valid {
+  border: 2px solid green;
+}
