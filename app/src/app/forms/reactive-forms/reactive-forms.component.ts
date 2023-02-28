@@ -6,7 +6,7 @@ import { PublishMenu } from '../../models/publish-menu';
 import { barcodeValidator } from '../../validations/barcode-validator';
 import { PublishStartEndDataValidator } from '../../validations/publish-start-end-date-validator';
 import { PostService } from './post.service';
-import { ExistProductNameValidator } from 'src/app/validations/exist-product-name-validator';
+import { ExistProductNameValidator } from '../../validations/exist-product-name-validator';
 
 @Component({
   selector: 'app-reactive-forms',
@@ -22,7 +22,6 @@ export class ReactiveFormsComponent {
         {
           Validators: [Validators.required, Validators.minLength(5)],
           asyncValidators: [ExistProductNameValidator(this.postService)],
-          updateOn: 'submit',
         },
       ],
       price: [
@@ -40,7 +39,7 @@ export class ReactiveFormsComponent {
       publishStartDate: [new Date(), [Validators.required]],
       publishEndDate: [new Date(), [Validators.required]],
     },
-    { validators: PublishStartEndDataValidator(), updateOn: 'blur' }
+    { validators: PublishStartEndDataValidator() }
   );
 
   categoryMenuList: CategoryMenu[] = [
@@ -62,12 +61,14 @@ export class ReactiveFormsComponent {
     this.postService.searchByProductName('sunt').subscribe((x) => {
       console.log(x.length);
     });
-    this.productForm.get('barcode')?.valueChanges.subscribe((x) => {
-      console.log(x);
-    });
   }
 
   save() {
+    if (this.productForm.invalid) {
+      alert('Lütfen tüm alanları doldurunuz');
+      return;
+    }
+
     this.newProduct = this.productForm.value as Product;
     console.log(this.newProduct);
   }
