@@ -13,9 +13,13 @@ export class UserComponent {
   constructor(private postService: PostService) {
     this.postService.getPost().subscribe((x) => (this.post = x));
   }
-  search(search: number) {
+  search(text: any) {
     this.loading = true;
-    this.postService.getPostById(search).subscribe((x) => {
+    // this.postService.getPostById(search).subscribe((x) => {
+    //   this.post = x;
+    //   this.loading = false;
+    // });
+    this.postService.getPostByTitle(text).subscribe((x) => {
       this.post = x;
       this.loading = false;
     });

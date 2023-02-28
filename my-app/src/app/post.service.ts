@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Post } from './Post';
-import { switchMap, from } from 'rxjs';
+import { switchMap, from, filter, toArray } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
@@ -12,11 +12,20 @@ export class PostService {
       'https://jsonplaceholder.typicode.com/posts'
     );
   }
-  getPostById(id: number) {
-    let params = new HttpParams().set('userId', id);
-    return this.httpClient.get<ReadonlyArray<Post>>(
-      'https://jsonplaceholder.typicode.com/posts',
-      { params: params }
-    );
+  // getPostById(id: number) {
+  //   let params = new HttpParams().set('userId', id);
+  //   return this.httpClient.get<ReadonlyArray<Post>>(
+  //     'https://jsonplaceholder.typicode.com/posts',
+  //     { params: params }
+  //   );
+  // }
+  getPostByTitle(tit: any) {
+    return this.httpClient
+      .get<Post[]>('https://jsonplaceholder.typicode.com/posts')
+      .pipe(
+        switchMap((x) => from(x)),
+        filter((x) => x.title.includes(tit)),
+        toArray()
+      );
   }
 }
