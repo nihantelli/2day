@@ -14,6 +14,9 @@
             <div *ngIf="isInvalidControl('email', 'required')">
               email alanı gereklidir.
             </div>
+            <div *ngIf="isInvalidControl('email', 'pattern')">
+              email patternleri hatalıdır.
+            </div>
           </div>
         </div>
         <div class="mb-3">
@@ -49,6 +52,9 @@
         <p>{{ productForm.get("email")?.value | json }}</p>
         <h4>Password:</h4>
         <p>{{ productForm.get("password")?.value | json }}</p>
+        <p>Valid :{{ productForm.get("password")?.valid }}</p>
+        <p>Invalid :{{ productForm.get("password")?.invalid }}</p>
+        <p>Errors :{{ productForm.get("password")?.errors | json }}</p>
       </div>
     </div>
   </div>

@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { User } from 'src/app/models/user';
-import { passwordValidator } from 'src/app/paswordvalidation';
+import { passwordValidator } from 'src/app/components/forms/paswordvalidation';
+import { ExistPasswordValidators } from 'src/app/exist-password-validator';
+import { ExistPasswordService } from 'src/app/exist-password-control.service';
 
 @Component({
   selector: 'app-forms',
@@ -11,11 +13,30 @@ import { passwordValidator } from 'src/app/paswordvalidation';
 export class FormsComponent {
   newUser: User | undefined = undefined;
   public productForm = this.formBuilder.group({
-    email: ['', [Validators.required]],
-    password: ['', [Validators.required, passwordValidator()]],
+    email: [
+      '',
+      [
+        Validators.required,
+        Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
+      ],
+    ],
+    password: [
+      '',
+      {
+        Validators: [Validators.required, passwordValidator()],
+        asyncValidators: [ExistPasswordValidators(this.existPasswordService)],
+      },
+    ],
     isOkay: [false],
   });
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private existPasswordService: ExistPasswordService
+  ) {
+    this.existPasswordService
+      .search('sunt')
+      .subscribe((x) => console.log(x.length));
+  }
   save() {
     this.newUser = this.productForm.value as User;
     console.log(this.newUser);
