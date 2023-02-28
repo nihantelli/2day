@@ -17,8 +17,14 @@ export class ReactiveFormsComponent {
   newProduct: Product | undefined = undefined;
   public productForm = this.formBuilder.group(
     {
-      name: ['', [Validators.required, Validators.minLength(5)]],
-      asyncValidators: [ExistProductNameValidator(this.postService)],
+      name: [
+        '',
+        {
+          Validators: [Validators.required, Validators.minLength(5)],
+          asyncValidators: [ExistProductNameValidator(this.postService)],
+          updateOn: 'submit',
+        },
+      ],
       price: [
         '',
         [Validators.required, Validators.min(100), Validators.max(1000)],
@@ -34,7 +40,7 @@ export class ReactiveFormsComponent {
       publishStartDate: [new Date(), [Validators.required]],
       publishEndDate: [new Date(), [Validators.required]],
     },
-    { validators: PublishStartEndDataValidator() }
+    { validators: PublishStartEndDataValidator(), updateOn: 'blur' }
   );
 
   categoryMenuList: CategoryMenu[] = [
@@ -52,7 +58,14 @@ export class ReactiveFormsComponent {
   constructor(
     private formBuilder: FormBuilder,
     private postService: PostService
-  ) {}
+  ) {
+    this.postService.searchByProductName('sunt').subscribe((x) => {
+      console.log(x.length);
+    });
+    this.productForm.get('barcode')?.valueChanges.subscribe((x) => {
+      console.log(x);
+    });
+  }
 
   save() {
     this.newProduct = this.productForm.value as Product;

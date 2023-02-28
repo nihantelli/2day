@@ -13,6 +13,7 @@ export class FormsComponent {
   public productForm = this.formBuilder.group({
     email: ['', [Validators.required]],
     password: ['', [Validators.required, passwordValidator()]],
+    isOkay: [false],
   });
   constructor(private formBuilder: FormBuilder) {}
   save() {
