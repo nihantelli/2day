@@ -1,28 +1,18 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
-import { PostListComponent } from './pages/post/post-list/post-list.component';
-import { PostCreateComponent } from './pages/post/post-create/post-create.component';
-import { PostUpdateComponent } from './pages/post/post-update/post-update.component';
-
 import { AppRoutingModule } from './app-routing.module';
-import { PagenotfoundComponent } from './pages/common/pagenotfound/pagenotfound.component';
-import { HomeComponent } from './pages/common/home/home.component';
-import { HttpClientModule } from '@angular/common/http';
-import { PostDetailComponent } from './pages/post/post-detail/post-detail.component';
+import { AppComponent } from './app.component';
+
 @NgModule({
   declarations: [
-    AppComponent,
-    PostListComponent,
-    PostCreateComponent,
-    PostUpdateComponent,
-    HomeComponent,
-    PagenotfoundComponent,
-    PostDetailComponent,
+    AppComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule
+  ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
