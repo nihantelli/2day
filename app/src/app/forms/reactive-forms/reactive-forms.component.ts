@@ -58,9 +58,9 @@ export class ReactiveFormsComponent {
     private formBuilder: FormBuilder,
     private postService: PostService
   ) {
-    this.postService.searchByProductName('sunt').subscribe((x) => {
-      console.log(x.length);
-    });
+    // this.postService.searchByProductName('sunt').subscribe((x) => {
+    //   console.log(x.length);
+    // });
   }
 
   save() {
