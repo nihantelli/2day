@@ -1,7 +1,9 @@
 <p>post-list works!</p>
 <button (click)="goToPostCreate()">post create sayfasına git</button>
 <button (click)="goToPostDetail(2)">post detail sayfasına git (id:2)</button>
-<a routerLink="/post-update" [queryParams]="{id:5}"> id=5 querystring data taşıma</a>
+<a routerLink="/post-update" [queryParams]="{ id: 5 }">
+  id=5 querystring data taşıma</a
+>
 <table class="table">
   <thead>
     <tr>

@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import {
+  ActivatedRoute,
+  ActivatedRouteSnapshot,
+  Router,
+} from '@angular/router';
 import { Post } from '../models/post';
 import { PostService } from '../post.service';
 
@@ -12,15 +16,18 @@ export class PostDetailComponent implements OnInit {
   post?: Post;
   constructor(
     private activatedRoute: ActivatedRoute,
-    private postService: PostService,
-    private router: Router
+    private router: Router,
+    private postService: PostService
   ) {}
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.params['id'];
+
     this.postService.getById(id).subscribe((x) => {
       this.post = x;
     });
+
     this.activatedRoute.params.subscribe((param: any) => {
+      console.log(param);
       this.postService.getById(param.id).subscribe((x) => {
         this.post = x;
       });
