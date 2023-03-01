@@ -1,22 +1,23 @@
-<p>ng-container-and-template works!</p>
-
 <ng-template #header let-data>
-  <h1>{{ data | json }}</h1>
+  <h3>{{ data.name }}</h3>
 </ng-template>
+
 <ng-container
   *ngTemplateOutlet="header; context: { $implicit: { name: 'ahmet' } }"
 ></ng-container>
+
 <ng-container
   *ngTemplateOutlet="header; context: { $implicit: { name: 'mehmet' } }"
 ></ng-container>
+
 <table class="table">
   <thead>
     <tr>
-      <td>picture</td>
-      <td>id</td>
-      <td>userId</td>
-      <td>title</td>
-      <td>body</td>
+      <td>Picture</td>
+      <th>id</th>
+      <th>userId</th>
+      <th>title</th>
+      <th>body</th>
     </tr>
   </thead>
   <tbody>
@@ -27,10 +28,12 @@
     </tr>
   </tbody>
 </table>
-<ng-template #postrow let-data="productData"
-  ><td>
+
+<ng-template #postrow let-data="productData">
+  <td>
     <img
-      src="https://i.pinimg.com/originals/8a/bb/30/8abb30d41127e20737d3fece39fc7c21.jpg"
+      src="https://media.wired.com/photos/598e35fb99d76447c4eb1f28/16:9/w_2123,h_1194,c_limit/phonepicutres-TA.jpg"
+      style="width: 100px; height: 100px"
       alt=""
     />
   </td>
