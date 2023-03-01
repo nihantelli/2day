@@ -1,0 +1,41 @@
+<p>ng-container-and-template works!</p>
+
+<ng-template #header let-data>
+  <h1>{{ data | json }}</h1>
+</ng-template>
+<ng-container
+  *ngTemplateOutlet="header; context: { $implicit: { name: 'ahmet' } }"
+></ng-container>
+<ng-container
+  *ngTemplateOutlet="header; context: { $implicit: { name: 'mehmet' } }"
+></ng-container>
+<table class="table">
+  <thead>
+    <tr>
+      <td>picture</td>
+      <td>id</td>
+      <td>userId</td>
+      <td>title</td>
+      <td>body</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of posts">
+      <ng-container
+        *ngTemplateOutlet="postrow; context: { productData: { post: p } }"
+      ></ng-container>
+    </tr>
+  </tbody>
+</table>
+<ng-template #postrow let-data="productData"
+  ><td>
+    <img
+      src="https://i.pinimg.com/originals/8a/bb/30/8abb30d41127e20737d3fece39fc7c21.jpg"
+      alt=""
+    />
+  </td>
+  <td>{{ data.post.id }}</td>
+  <td>{{ data.post.userId }}</td>
+  <td>{{ data.post.title }}</td>
+  <td>{{ data.post.body }}</td>
+</ng-template>

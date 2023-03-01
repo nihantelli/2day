@@ -3,15 +3,9 @@ import { CommonModule } from '@angular/common';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserCreateComponent } from './user-create/user-create.component';
 
-
-
 @NgModule({
-  declarations: [
-    UserListComponent,
-    UserCreateComponent
-  ],
-  imports: [
-    CommonModule
-  ]
+  declarations: [UserListComponent, UserCreateComponent],
+  imports: [CommonModule],
+  exports: [UserListComponent],
 })
-export class UserModule { }
+export class UserModule {}
