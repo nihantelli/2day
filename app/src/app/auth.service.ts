@@ -5,11 +5,12 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
   currentUser: User | null = null;
+
   constructor() {
-    // this.currentUser = { id: 1, name: 'ahmet' };
+    this.currentUser = { id: 1, name: 'ahmet' };
   }
   isAuthenticate() {
-    return this.currentUser !== null;
+    return this.currentUser != null;
   }
 }
 export interface User {

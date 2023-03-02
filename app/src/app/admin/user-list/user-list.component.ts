@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class UserListComponent {
   name: string = '';
+
   isEdit() {
     return this.name != '';
   }
