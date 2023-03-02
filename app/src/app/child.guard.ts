@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
-  CanActivate,
+  CanActivateChild,
   RouterStateSnapshot,
   UrlTree,
 } from '@angular/router';
@@ -10,8 +10,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class ChildGuard implements CanActivate {
- 
+export class ChildGuard implements CanActivateChild {
   canActivateChild(
     childRoute: ActivatedRouteSnapshot,
     state: RouterStateSnapshot

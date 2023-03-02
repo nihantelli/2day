@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { UserListComponent } from './admin/user-list/user-list.component';
-import { AuthGuard, canActivateNewFormat } from './auth.guard';
+import {  canActivateNewFormat } from './auth.guard';
 import { CanOrderLoad } from './canorder';
 import { ChildGuard } from './child.guard';
 import { EditGuardNewType } from './edit.guard';
@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   {
     path: 'admin',
-    canActivate: [AuthGuard, canActivateNewFormat],
+    canActivate: [canActivateNewFormat],
     canActivateChild: [ChildGuard],
     children: [
       { path: '', component: AdminHomeComponent },
