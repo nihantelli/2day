@@ -37,9 +37,10 @@ export class EditGuard implements CanDeactivate<UserListComponent> {
     | Promise<boolean | UrlTree> {
     if (component.isEdit()) {
       return confirm(
-        'başka bir sayfaya giderseniz değişiklikleriniz kaybolacaktır'
+        'başka bir sayfaya giderseniz, değişiklikleriniz kaybolacaktır.'
       );
     }
+
     return true;
   }
 }
