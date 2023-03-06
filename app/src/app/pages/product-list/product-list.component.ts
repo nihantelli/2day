@@ -18,13 +18,8 @@ export class ProductListComponent implements OnInit {
   }
 
   isOk(id: number) {
-    let productIndexToUpdate = this.productList.findIndex(x => x.id == id);
-
-    this.productList[productIndexToUpdate].isOk = !this.productList[productIndexToUpdate].isOk;
-
-
-    this.isOkClickEvent.emit();
-    console.log(this.productState.productList);
+   this.productState.isOk(id);
+   this.isOkClickEvent.emit();
 
   }
 }
