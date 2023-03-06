@@ -1,16 +1,33 @@
 import { NgModule } from '@angular/core';
-
 import { BrowserModule } from '@angular/platform-browser';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './pages/home/home.component';
-import { AboutComponent } from './pages/about/about.component';
-import { LoginComponent } from './pages/login/login.component';
+import { ProductListComponent } from './pages/product-list/product-list.component';
+import { ProductCreateComponent } from './pages/product-create/product-create.component';
+import { ProductUpdateComponent } from './pages/product-update/product-update.component';
+import { ProductDeleteComponent } from './pages/product-delete/product-delete.component';
+import { ProductListWithOkComponent } from './pages/product-list-with-ok/product-list-with-ok.component';
+
+
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, AboutComponent, LoginComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  declarations: [
+    AppComponent,
+    ProductListComponent,
+    ProductCreateComponent,
+    ProductUpdateComponent,
+    ProductDeleteComponent,
+    ProductListWithOkComponent,
+
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+  
+
+  ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Product } from '../models/product';
 
 @Injectable({
   providedIn: 'root',
@@ -6,10 +7,4 @@ import { Injectable } from '@angular/core';
 export class ProductStateService {
   public productList: Product[] = [];
   constructor() {}
-}
-export interface Product {
-  id: number;
-  name: string;
-  price: number;
-  color: string;
 }
