@@ -1,5 +1,6 @@
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { find, from, Observable, of, toArray } from 'rxjs';
+import { find, from, map, Observable, of, toArray } from 'rxjs';
 import { Todo } from '../models/todo';
 import { TodoSave } from '../models/todo-save';
 import { TodoUpdate } from '../models/todo-update';
@@ -8,69 +9,51 @@ import { TodoUpdate } from '../models/todo-update';
   providedIn: 'root',
 })
 export class TodoService {
+  baseUrl = 'https://localhost:7001';
   todoList: Todo[] = [];
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   getAll(): Observable<Todo[]> {
-    return from(this.todoList).pipe(toArray());
+    return this.http.get<Todo[]>(`${this.baseUrl}/api/todos`);
   }
 
   get(id: number): Observable<Todo | undefined> {
-    return from(this.todoList).pipe(find((x) => x.id == id));
+    return this.http.get<Todo>(`${this.baseUrl}/api/todos/${id}`);
   }
 
   delete(id: number): Observable<boolean> {
-    var todoIndexToDelete = this.todoList.findIndex((x) => x.id == id);
-
-    if (todoIndexToDelete <= -1) {
-      return of(false);
-    }
-
-    this.todoList.splice(todoIndexToDelete, 1);
-
-    return of(true);
+    return this.http
+      .delete(`${this.baseUrl}/api/todos/${id}`, { observe: 'response' })
+      .pipe(map((x) => x.status === 204));
   }
 
   save(newTodo: TodoSave): Observable<boolean> {
-    const newId = Math.floor(Math.random() * 100);
-
-    this.todoList.push({
-      id: newId,
-      content: newTodo.content,
-      isCompleted: false,
-      created: new Date(),
-    });
-
-    return of(true);
+    return this.http
+      .post<Response>(`${this.baseUrl}/api/todos`, newTodo, {
+        observe: 'response',
+      })
+      .pipe(map((x) => x.status === 201));
   }
 
   update(todo: TodoUpdate): Observable<boolean> {
-    var todoIndexToUpdate = this.todoList.findIndex((x) => x.id == todo.id);
-    if (todoIndexToUpdate <= -1) {
-      return of(false);
-    }
-
-    this.todoList[todoIndexToUpdate].content = todo.content;
-    return of(true);
+    return this.http
+      .put<Response>(`${this.baseUrl}/api/todos/${todo.id}`, todo, {
+        observe: 'response',
+      })
+      .pipe(map((x) => x.status === 204));
   }
   isCompleted(id: number): Observable<boolean> {
-    var todoIndexToUpdate = this.todoList.findIndex((x) => x.id == id);
-    if (todoIndexToUpdate <= -1) {
-      return of(false);
-    }
-
-    this.todoList[todoIndexToUpdate].isCompleted =
-      !this.todoList[todoIndexToUpdate].isCompleted;
-    return of(true);
-
-    //bad way
-    // if( this.todoList[todoIndexToUpdate].isCompleted==true)
-    // {
-    //   this.todoList[todoIndexToUpdate].isCompleted==false
-    // }
-    // else
-    // {
-    //   this.todoList[todoIndexToUpdate].isCompleted==true
-    // }
+    return this.http
+      .put<Response>(
+        `${this.baseUrl}/api/todos/iscompleted/${id}`,
+        {},
+        { observe: 'response' }
+      )
+      .pipe(
+        map((x) => {
+          console.log(x);
+          return x.status === 204;
+        })
+      );
   }
 }
