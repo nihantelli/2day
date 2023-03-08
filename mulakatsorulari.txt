@@ -1,0 +1,552 @@
+--TYPESCRIPT NEDİR?
+TypeScript ile hem istemci tarafı hem de sunucu tarafı JavaScript uygulamaları oluşturulabilir. 
+Daha büyük ölçekli ve işlevsel kodlar yazmamızı sağlar, hataları görmemizi sağlar. Microsoft tarafından geliştirilmekte
+ve desteklenmektedir. Barındırdığı derleyici sayesinde, yazılan kodu JavaScript koduna çevirir. Nesne yönelimli programlama dilidir.
+Kodları JavaScript'e dönüştürür. Nesne tabanlı programlamayı, javascript kütüphanelerini, dom manipülasyonunu destekler.
+
+--TYPESCRIPT’IN AVANTAJLARI NELERDİR?
+Compile-time yani derleme zamanında hatalar gösterilir, derleme yeteneğine sahiptir, okunabilir ve
+ sürdürülebilir kod sağlar. Çapraz platformlara uyumludur. Static typing nedeniyle derleme zamanında 
+ tip doğrulama yapmamızı sağlar. Kod yapılandırmasında yardımcı olur. Intellisense yani kod yazdıkça aktif ipuçları sağlar.
+  Modül tanımlamak için namespacelere sahiptir. Statik yazmayı destekler, javascript’te bu yoktur.
+   Geliştirme sırasında hataları görmemizi sağlar. Javascript bunu runtime’da gösterir.
+
+--TYPESCRIPT’IN DEZAVANTAJLARI NELERDİR?
+Kodu derlemesi uzun sürer. Ekstra oluşturma aşaması vardır. Küçük script dosyaları için uygun değildir.
+Tüm tipler işin içine girdiğinde dosya şişebilir. Abstract classları desteklemez. 3.tür kütüphaneleri 
+kullanırken tanım dosyası şarttır.
+
+--ARRAYLERİ NEDEN KULLANIRIZ?
+Aynı türden değerleri depolamak için dizileri kullanırız.
+let values: number[] = [];
+
+--ARRAY TANIMLAMALARI NASIL OLMALIDIR?
+Diziler, değişkenler gibi kullanılmadan önce bildirilmelidir.
+Dizi öğelerinin değerleri güncellenebilir veya değiştirilebilir ancak silinemezler.
+
+--DEĞİŞKEN TANIMLARI
+Let ve const kullanılır. Değişken rakamla başlayamaz, _ ve $ işareti dışında özel karakter kullanılamaz.
+
+--TYPESCRİPT’TE DEĞİŞKEN KEYWORDLERİ FARKLARI NELERDİR?
+var: Function scope and global variable, yalnızca bir fonksiyon içinde tanımlandıysa dışarıdan erişilemez. 
+Bunun dışındaki durumlarda global olarak erişilebilir. Değeri değiştirilebilir, başka değer atanabilir.  
+ let: block-scoped, local variable. Sadece tanımlandığı {} scope içinde erişilebilir. const: block-scoped.
+ Sadece tanımlandığı {} scope içinde erişilebilir. Ek olarak, içindeki değer değiştirilemez.
+
+--DEĞİŞKEN TANIMLAMA KURALLARI
+Değişken adı alfabetik veya rakam olmalı. Rakamla başlayamaz. – ifadesi kullanılamaz. Sadece _ ve $ işareti kullanılabilir.
+
+--DÖNGÜLER
+For loop: Sabit sayıda yinelemeli döngü, sayısal i değeri alabilir
+do-while loop: kesinlikle en az 1 kez çalışır.
+while loop: koşul doğru ise
+forEach, for…of :direkt dizi değerlerini verir. String değerde kullanılırsa harf değerlerini verir.
+
+--TSCONFIG.JSON FİLE NEDEN KULLANILIR?
+Derleyiciye projenin nasıl derleneceğini belirttiğimiz json biçimli dosya.
+
+--SAYISAL İFADEYE DÖNÜŞTÜRME METHODLARI NELERDİR?
+parseInt(), parseFloat() and Number() Method.
+
+--CONTEXTUAL TYPING NEDİR?
+Bağlamsal yazım. Kodun sol tarafında tip belirtmeyi yaptıktan sonra sağ tarafta yapmamıza gerek kalmaz,
+typescript bunu kendisi sağlar. Bir ifadenin türü, konumu tarafından belirtilmiş olur.
+
+--JSX NEDİR?
+JavaScript Syntax Extension. Farklı bir uzantıya sahip javascript. React’te kullanılır. XML'e benzeyen
+ve gömülebilen bir söz dizimidir, kodu JavaScript'te derlememize olanak tanır. Xml’den sonra gelmiştir.
+Jsx’i doğrudan javascript’e gömmeyi, tür denetlemeyi ve derlemeyi destekler.
+
+--STATIC TYPING NEDİR?
+Hataların erken tespiti için olanak sağlar, static typing sayesinde tip kontrolünü geliştirme aşamasında sağlarız.
+Örneğin let value=3 dedikten sonra value=”abc” diyemeyiz, hata alırız. Same type olması gereklidir.
+
+--EXPORT KEYWORDU NE ANLAMA GELİR?
+Tanımlamaları dışarı açarak başka dosyalar tarafından kullanılabilmesini sağlar.
+
+--TYPESCRIPT BACKENDDE KULLANILABİLİR Mİ?
+TypeScript'i Node.js ile birleştirerek kullanılabilir.
+
+--METHOD NE ZAMAN TRUE DÖNER?
+Değer null, undefined, false, 0, NaN, empty değilse true döndürür.
+
+--GETTERS/SETTERS METHODLARI NEYİ İFADE EDER?
+Bir üyenin her bir nesneyle nasıl etkileşime girdiği üzerinde daha kesin kontrole sahip olmamızı sağlar.
+
+--CONST ANAHTAR KELİMESİ KULLANILIR MI?
+Classlar const anahtar sözcüğü ile bildirilmez.
+
+--DECLARE KEYWORDU NE ANLAMA GELİR?
+Derleyiciye bir nesnenin var olduğunu bildirir. Yani başka bir yerde bildirilen, tanımlanan bir nesnenin kullanılmasını sağlar.
+
+--INTERFACE NEDİR?
+Interface, onu uygulayan bir class tarafından atıfta bulunulacak sözdizimini belirtir. Kullanımın kurallarını belirleyen taslak yapısıdır.
+
+--‘AS’ SYNTAX ININ TANIMI
+Orijinal sözdizimi JSX ile uyumsuz olduğu için oluşturuldu. Tip onayı için kullanılır.
+let x :any= 232;
+let y= x as number;
+
+--TYPESCRIPT'TE NESNELER NASIL OLUŞTURULUR?
+Key-value çiftinden oluşur. Önce tür, sonra tanımlama yapılır.
+let pt: { x: number; y: number } = { x:10, y:20}
+
+--TYPESCRIPT'TE FARKLI VERİ TÜRLERİNİ AÇIKLAYIN?
+Number, boolean, string, void, null, undefined, any
+
+--TYPE INFERENCE NEDİR?
+Statik tipli dillerin büyük bölümünde yer alan özelliktir. Bir değişken için açık bir tür belirtmediğinizde, TypeScript
+bunu anlayabilir, kod içindeki kullanımdan kendisi çıkartır. Bir değer türü belirler ve devamında aynı türden değerler bekler.
+
+--TYPESCRIPT'TEKİ TUPLE NEDİR?
+Demetler, çeşitli değerler topluluğudur. Çeşitli türden birçok alanın depolanmasına izin verir. Türleri bilinen ancak
+aynı türde olması gerekmeyen öğelere sahip diziyi ifade etmeye yarar. Örneğin string, number, boolean değerlerinden oluşan bir array.
+
+--ANONİM FONKSİYONLAR NEDİR?
+Fonksiyon adı belirtilmeyen fonksiyonlardır. Normalde ismi olmadığı için oluşturulduğu andan sonra kullanılamaz. 
+Ama değişkene atanırsa bu sorun ortadan kalkar.
+
+--TYPESCRIPT NASIL KURULUR?
+npm install -g typescript
+
+--DECORATORS NEDİR?
+@ ifadesi kullanır. Bir sınıf bildirimini, yöntemi, erişimciyi, özelliği veya bağımsız değişkeni kullandığımızı ifade eder.
+
+--MIXINS NEDİR?
+Daha basit kısmi sınıfları birleştirmek, yeniden kullanılabilir bileşenlerden sınıflar oluşturmaya yönelik bir yaklaşımdır,
+class mirasına dayanır.
+
+--CLASSLARI TANIMLAYIN.
+Benzer özelliklere sahip öğelerin bir arada tutulmasıdır. Nesnelerin özelliklerini, davranışlarını, başlangıç durumlarını 
+tanımlamak ve nesneleri üretmek  için kullanılan şablonlara verilen addır.
+
+--NAMESPACE NEDİR VE NASIL KULLANILIR?
+İşlevleri mantıksal olarak gruplandırmak için kullanılır.
+
+--REST PARAMETERS NEDİR?
+Bir fonksiyonun alacağı parametre sayısı bilinmediğinde veya değişkenlik gösterdiğinde rest parametrelerini kullanırız.
+
+--TYPE ALIASES NEDİR?
+Yeni bir tür yaratmaz; bunun yerine, bu türe yeni bir ad verir.
+type Container<T> = { value: T };
+
+--TYPESCRIPTTEKİ MODÜLLER NELERDİR?
+Modül, ilgili değişkenler, işlevler, sınıflardan oluşan bir gruptur. Dışa aktarılmadıkları sürece modülün dışında 
+görünmediği anlamına gelir.  Genel kapsamda değil, kendi kapsamlarında yürütülebilir. Bir modülde bildirilen değişkenlere, 
+işlevlere, sınıflara ve arabirimlere modülün dışından doğrudan erişilemez. Export ile dışarı açar, import ile dosyaya dahil ederiz.
+Internal modüle: başka bir modülde dışa aktarılabilir. Diğer modüllerin yerel veya dışa aktarılmış üyeleridir. 
+Module Declarations kullanılarak bildirilir. Namespace kullanır.
+External modüle: yalnızca bildirilen değişkenle ilişkili yöntemleri ve parametreleri gösterir. Typescript’in son sürümünde 
+bunu kullanırız. Ayrı ayrı yüklenmiş kod gövdeleridir.
+
+--MAPPED TYPES NEDİR?
+Mevcut bir türü alıp her bir özelliğini isteğe bağlı hale getirmek için kullanılır.
+Typescript’te koşullu türler nelerdir?
+Nesnenin tipini belirlenen bir koşula göre atamaktadır.
+Örnek: T extends U ? X : Y
+
+--TYPESCRIPT BİLEŞENLERİ NELERDİR?
+Language, Compiler, Language Services.
+Language: tip tanımlamaları, kendi sözdizimi ve anahtar kelimeleri vardır.
+Compiler: TypeScript dilinde yazılan kodu Javascript diline dönüştürür.
+Language Services: editörlerde kullanılması için kod biçimlendirme, ifade tamamlama gibi tipik editör özelliklerini destekler.
+
+--TYPESCRIPT TARAFINDAN DESTEKLENEN NESNE YÖNELİMLİ İLKELER NELERDİR?
+Encapsulation, Inheritance, Polymorphism and Abstraction
+Encapsulation: Özetle kod için kendi erişim noktaları kümesine sahip olacak şekilde yapılandırma yöntemidir.
+Inheritance: Özetle alt sınıfların üst sınıftan miras almasıdır.
+Polimorfizim: alt sınıflar, üst sınıflardan miras alır ve artık özellikleri farklı biçimlerde tanımlayarak kullanırlar.
+Abstraction: Soyutlama, bir sınıfa veya metoda temel görevlerin tanımlanması, detayların ise tanımlanmaması demektir. 
+Bir classtan direkt nesne oluşturulmasını istemiyorsak abstract class olarak tanımlarız. Önce miras alınır, sonra alt 
+sınıftan nesne üretilir. Bu classta ise başına abstract yazılan methodun gövdesi bulunmaz.
+
+--DRAWBACKS DOSYALARINI TYPESCRIPT İLE KULLANMANIN DEZAVANTAJLARI NELERDİR?
+Bu dosyaları ihtiyaçlarınızı ve projenizin bağımlılıklarının taleplerini karşılayacak şekilde özelleştirmek zordur.
+
+--TYPESCRIPT VISUAL STUDIO CODE İLE NASIL DERLENİR?
+Visual Studio Code, TypeScript dil desteği içerir ancak TypeScript derleyicisini içermez. Derleyiciyi yüklemek için :
+ npm install -g typescript
+Version kontrol için: tsc –version
+
+--TYPESCRIPT’TEKİ SON GELİŞMELER NELERDİR?
+TypeScript 4.2, daha esnek tip ek açıklamaları, daha sıkı kontroller, ek yapılandırma seçenekleri ve birkaç önemli değişiklik içeriyor.
+Beklenen türü açıklamak best practisedir.
+A = string type A = Awaited<Promise<string>>;
+
+--TYPESCRIPT DOSYALARININ NODE MODULESLERDEN NASIL DESTEKLENEBİLİR?
+Belirli bir libraryi kullanmak üzere belirli bir paketi yüklemek için npm kullanabiliriz. Yüklenecek olan paketler node modules
+ içinde toplanacaktır.
+
+--TİP ONAYLAMA NEDİR?
+Runtimeda bir etkisi yoktur, derleme zamanında kullanılır. Eğer gerekli türü belirtmezsek mesela number değerimize any dersek
+typescript bize number methodlarını vermeyecektir.
+
+--RECURSİVE TÜR ADLARI NEDİR?
+type ValueOrArray<T> = T | ArrayOfValueOrArray<T>;
+
+--NEDEN TYPESCRIPT TERCİH EDİLİR?
+JavaScript küçük ölçekli uygulamalar oluşturmak için tasarlanmıştır. Yakın zamana kadar sınıflar, modüller ve arayüzler gibi 
+yapıları olmadığından büyük projeler oluşturmaya uygun değildi. Ayrıca, Javascript’in intellisense gibi özellikleri yoktur. 
+Ts uzantılı girilen kodları js uzantılı pure Javascript sayfasına dönüştürür.
+
+--TYPESCRIPT TİPLERİ NELERDİR?
+Built-in types: string, number,boolean,void,symbol, null, undefined
+User-defined types: arrays, enums, classes, interfaces.
+
+--ANY TÜR NEDİR?
+Değişkenin türünü önceden bilemediğimiz zamanlarda kullanırız. Örneğin bir API’den veri çekerken. Herhangi bir türde değer 
+atamamıza izin verir.
+
+--VOID TİP NEDİR?
+Bir değişkende tip bulunmadığını gösterir. Değer döndürmeyen işlevlerde kullanılır. Örneğin console yazdırma.
+
+--UNKNOWN TİP NEDİR?
+Bilinmeyen tür, buraya her şeyi atayabiliriz. Onu daha spesifik bir türe atamadan herhangi bir işlem gerçekleştirilemez.
+Unknown olarak tanımlanmış bir değeri, string türde bir değere atayamayız.
+let x: unknown=”abc”
+let y:string = x hata verir.
+let y: string= x as string demeliyiz.
+Bir fonksiyona parametre gönderirken tip belirterek gönderilmelidir.
+
+--TYPESCRIPTTE İSTEĞE BAĞLI ÖZELLİKLER NASIL BELİRLENİR?
+Değerin sonuna “?” ekleyerek var veya yok durumuna getirebiliriz.
+
+--NULL TYPE NEDİR?
+Değişkenin olmadığını gösterir. Herhangi bir özelliğe erişemez ve method çağırılamaz.
+
+--UNDEFINED  TYPE NEDİR?
+Bir değişken başlatma olmadan kullanıldığında ona tanımsız bir değer atanır. Bir değişken tanımlanmış, ama henüz 
+ona bir değer atanmamıştır.
+
+--NEVER TYPE NEDİR?
+Asla oluşmayan değerlerin türünü temsil eder.
+Örneğin hiçbir zaman değer döndürmeyen bir tür.
+
+--ENUM NEDİR, NASIL ÇALIŞIR?
+Adlandırılmış sabitler oluşturmamıza izin verir. Sayısal sabit değerlere daha kolay isimler vermek olarak düşünebiliriz.
+
+--TYPEOF NEDİR?
+Değişkenin türünü döner.
+
+--REST PARAMETRESİ NEDİR?
+Bir fonksiyon sonsuz sayıda değişkeni kabul edebilir. … ile belirtilerek birden fazla argüman alabileceği anlamına gelir.
+function add(...values: number[]) {..} Bu metoda istenildiği kadar parametre girilebilir.
+
+--DESTRUCTURING PARAMETRESİ NEDİR?
+Bir fonksiyonun argüman olarak sağlanan nesneyi bir veya daha fazla değişkene açmasına denir.
+
+--SYMBOL TÜRÜNÜ AÇIKLAYIN?
+ES6 ile gelmiştir. Nesneler için benzersiz özellikler oluşturmak için kullanılır.
+İsteğe bağlı zincirleme nedir?
+let x = foo?.bar.baz(); foo değeri null veya undefined dönerse zincir otomatik olarak durur.
+
+--FUNCTION OVERLOAD NEDİR?
+Parametre sayıları veya türleri farklı olduğu sürece aynı ada sahip fonksiyonlar üretmeye denir.
+
+--NO IMPLICIT ANY’NİN AMACI NEDİR?
+Herhangi bir tür belirtmezsek, typescript onu any türünde algılar.
+
+--TYPESCRIPT STATIC CLASLARI DESTEKLER Mİ?
+Desteklemez. C# ve java destekler çünkü kodlar işlevsel bir sınıfın içinde olmalıdır, tek başına var olamazlar,
+ statik sınıflar işlevleri sınıfa bağlı olmadan ilişkilendirmeyi sağlar. Typescript’te sınıf oluşturmadan da bunu yapmak mümkündür.
+  Bu yüzden ihtiyaç duymaz. Singleton sınıfı sadece  bir nesnedir.
+
+--UNION TYPES NEDİR?
+Birleşim türü. | ile belirtilir. Bir değerin string | veya number olacağını belirtmek için kullanırız.
+
+--INTERSECTION TYPE NEDİR?
+Tüm özelliklere sahip tek bir tip elde etmek için mevcut tipleri birleştirmeyi sağlar.
+
+--TYPESCRIPT’TE TUPLE YOK ETME
+= atama aracı kullanarak tüple öğelerini yok edebiliriz. Bu işlemden sonra yapısı bozulan değişkene farklı türde bir değer atanamaz.
+
+--TYPE ASSERTIONS NEDİR?
+1.yöntem
+let value: unknown = "Foo";
+let len: number = (value as string).length;
+2.yöntem
+let value: unknown = "Foo";
+let len: number = (<string>value).length;
+
+--STRICT NULL CHECKS NASIL UYGULANIR?
+Tsconfig.json strict: true veya false yapılır.
+True olduğunda tip hataları belirtilir.
+False olduğunda daha az hatayla karşılaşırız.
+Önerilen bunun true olmasıdır.
+
+--DECLARATION FILE NEDİR?
+.d.ts uzantısıyla biten bir metin dosyasıdır ve bu değerler için uygulama sağlamadan bazı türlerin veya değerlerin
+varlığını bildirmenin bir yolunu sağlar.
+
+--TRIPLE-SLASH DIRECTIVES NEDİR?
+Derleyici yönergesidir. XML etiketi içeren tek satırlık yorumlardır.
+
+--IN OPERATÖRÜ NEDİR?
+Bir özelliğin belirtilen nesnede olup olmadığını bulmaya yarar.
+
+--IMPLEMENTS NE ANLAMA GELİR?
+Bir classın interfaceden gelen sözleşmeyi karşıladığını kontrol etmeye yarar. Kullanmıyorsa hata verir.
+
+--INHERITANCE’I AÇIKLAYIN.
+Bir sınıfın başka bir sınıfı genişletmesine, yeniden kullanmasına, değiştirmesine imkan verir.
+Miras alınan base class, alan sınıf derived classtır. Bir class yalnızca 1 classtan inheritance edilebilir.
+Extends keywordu kullanılır.
+
+--CONDITONAL TYPES NEDİR?
+Koşullu tür. Yani C extends B ? TypeX : TypeY
+C classı B classını inheritance ederse X türü, etmezse Y türü kullanılsın.
+
+--UTILITY TYPES NEDİR?
+Tür dönüşümlerini kolaylaştıran türler sağlar.
+Partial <type> : Type'ın tüm özelliklerinin isteğe bağlı olarak ayarlandığı durum
+required <type>: Type öğesinin gerekli olarak ayarlanmış tüm özelliklerinden oluşan bir tür oluşturur.
+readonly <type>: Type'ın tüm özellikleri salt okunur olarak ayarlanmış bir tür oluşturur.
+record<Keys, Type>:
+Javascript dinamik olarak yazılan, typescript static olarak yazılan bir dildir.
+Dynamic language- Statically-typed language
+
+--TYPESCRIPT İLE JAVASCRIPT FARKLARI NELERDİR?
+Javascript : .js uzantılı,  ES6 desteklemez.  Static typing desteklemez, sadece script dilidir. Opsiyonel parametre özellikleri yoktur.
+Interpreted language. Hatayı runtime da alır. Modülleri desteklemez. Genericsleri desteklemez. Number ve stringler birer nesnedir.
+Typescript: .ts uzantılı. ES6yı destekler. Static typingi destekler.bObject oriented konseptlerinden interfaces, inheritance,
+genericleri destekler. Opsiyonel parametreler alabilir. Modülleri destekler. Numbers, string birer interfacedir.
+
+--BİRDEN ÇOK TS DOSYASINI TEK JS DOSYASINDA BİRLEŞTİRMEK MÜMKÜN MÜDÜR?
+$ tsc --outFile comman.js file1.ts file2.ts file3.ts ile mümkün
+
+--TS DOSYASINDAKİ GERÇEK ZAMANLI DEĞİŞİKLİKLERLE OTOMATİK OLARAK .TS DERLEMEK MÜMKÜN MÜDÜR?
+Evet –watch ile. Her seferinde tsc dosyaadi.ts dememize gerek kalmaz.
+
+--JAVASCRIPT MODÜLLERİ DESTEKLİYOR MU?
+Hayır. Bunun için harici bir commonJs’ye ihtiyaç var.
+
+--BASE CLASS, CHILD CLASSTAN NASIL ÇAĞRILIR?
+Super() methodu ile. Base classtaki constructor bilgilerine erişilir.
+
+--HATA AYIKLAMAK MÜMKÜN MÜDÜR?
+Evet, .ts dosyasını –sourcemap flagi ile derleriz. $ tsc -sourcemap file1.ts
+
+--TYPESCRIPT TANIM YÖNETİCİSİ NEDİR?
+TypeScript Definition Manager (TSD), TypeScript tanım dosyalarını doğrudan ReallyTyped deposundan aramak ve yüklemek
+için kullanılan bir paket yöneticisidir.
+
+--TYPESCRIPT DEFINITION FILE NASIL OLUŞTURULUR?
+tsc --declaration file1.ts
+
+--GENERICS NEDİR?
+Yeniden kullanılabilir bileşenler oluşturmak için bir yol sağlayan bir araçtır. Tek bir veri türü yerine çok çeşitli
+ veri türleri ile çalışabilen bileşenler oluşturabilmektedir. <T> kullanır.
+<  > Arasına girilen tür, T ye karşılık gelecektir.
+
+--INTERFACE VE TYPE FARKI NEDİR?
+Interface, bir nesne türü tanıtır. Her yerde kullanılan yeni bir ad oluşturur. Birden çok birleştirilmiş bildirime sahip olabilir.
+Type, birden çok birleştirilmiş bildirime sahip olamaz.
+
+--AMBIENTS NEDİR VE NEREDE KULLANILIR?
+Derleyiciye başka bir yerde var olan gerçek kaynak kodu hakkında bilgi verir. Çalışma zamanında bu kaynak kodları yoksa
+ ve bunları kullanmaya çalışırsak uyarı vermeden bozulur.
+
+--TYPESCRIPT MAP FILE NEDİR?
+Orijinal dosyalarımız hakkında bilgi tutar. Yayınlayan JavaScript kodu ile onu oluşturan TypeScript kaynak dosyaları
+arasında eşleme yapılmasına izin veren kaynak eşleme dosyalarıdır.
+
+--OVERRIDING NEDİR?
+Alt sınıf, üst sınıfla aynı metoda sahipse, üstteki geçersiz kılınır. Yani yeniden tanımlanır.
+--JS’DE DATA TİPLERİ NELERDİR?
+
+1.primitive tipler: string, number, bigint, boolean, undefined, null, symbol
+2.non primitive tipler: object
+
+--JAVASCRIPT'TE HOISTING’İ AÇIKLAYINIZ.
+Değişkeni önce kullanıp sonra tanımla işlemidir.
+
+--DEBUGGER NEDİR?
+Koddaki hatayı ayıklamak için debugger aktifleştirilmelidir.
+
+--IMPLICIT COERCION NEDİR?
+Değerin bir veri türünden diğerine türüne dönüştürülmesidir.
+
+--THIS ANAHTAR SÖZCÜĞÜ NEDİR?
+Tek başına kullanıldığında global nesneyi ifade eder, nesne içinde ait olduğu nesneyi ifade eder..
+
+--SELF INVOKING FONKSİYONLAR NEDİR?
+Bir fonksiyonun scope bitimine () yerleştirerek otomatik olarak çağırma işlemi gerçekleşir.
+
+--CALL(), APPLY() VE BIND() FONKSİYONLARI NE İÇİN KULLANILIR?
+Call(): ait olduğu nesneyi belirterek fonksiyonu çağırır. Örn bir fonksiyon içerisinde this ile tanımlanmış bir
+alan var ve fonksiyon dışarısında da bir obje bulunuyorsa bu fonksiyon çağırılırken o nesne belirtilerek çağırılabilir.
+Apply(): call methodu ile benzerdir ancak tek fark call methodu argümanları tek tek alırken apply methodu dizi olarak alır.
+Bind(): Geriye fonksiyon döner, dolayısıyla bir değişkene atılıp çağrılması gerekmektedir.
+
+--JAVASCRIPT STATİK TİPLİ BİR DİL MİDİR YOKSA DİNAMİK Mİ?
+Dinamik tipli bir dildir. Statik tipin aksine dinamil dillerde değerlerin tipleri run-time esnasında kontrol edilir. 
+
+--JAVASCRIPT'TE HIGHER ORDER FUNCTIONS'I AÇIKLAYINIZ.
+Başka bir fonksiyonu argüman olarak alan veya return eden fonksiyonlar.
+
+--EXTERNAL JS KULLANMANIN AVANTAJLARI NELERDİR?
+Web tasarımcıları ve geliştiricilerin html ve js dosyalarında bir arada çalışmasını sağlar.
+Kod tekrar kullanılabilir, kod okunurluğu daha kolaydır
+
+--SCOPE VE SCOPE CHAIN NEDİR?
+Global scope: global namespacete tanımlanan her değişken veya fonksiyona dışarıdan erişim sağlanabilir.
+Function scope: bir fonksiyon içerisinde tanımlanan tüm elemanlara o fonksiyon içerisinde erişilebilir ancak dışında erişilemez.
+Block scope: var dışında let ve cont ile tanımlanan değişkenler için kullanılan süslü parantezler içerisinde veya döngüde kullanılan 
+değişkenlere bu scopelar haricinde erişilemez.
+Scope chain: bir fonksiyon scope u içerisinde kullanılan bir değişkende değişkenin tanımlandığı yerin aranma sırası hiyerarşiktir.
+Öncelikle kendi scope u içerisine bakılır daha sonra diğer üst scope lara sırası ile devam edilir.
+
+--CLOSURE NEDİR?
+Bir fonksiyonun çalıştırıldıktan sonra bile sonraki referanslar için bir değişkeni saklama yeteneğidir.
+Fonksiyonun dışında tanımlanan değerin fonksiyona ulaşabilmesidir.
+
+--DOM NEDİR?
+Tarayıcılar html sayfalarını yorumlarken bir obje oluştururlar. 
+Bu objeyi kullanarak html elementlerine ulaşabilir ve değişiklikler yapabiliriz.
+
+--CURRYING NEDİR?
+Birden fazla argüman alan fonksiyonun, içerisinde tüm argümanlar kullanılana kadar fonksiyon olarak 
+dönen bir fonksiyona çevrilmesidir.
+
+--OBJECT PROTOTİPLERİ NELERDİR?
+Tüm JS objeleri bir prototype dan özellikler miras alır.
+Zincirin en üstünde object.prototype bulunur. Obje içinde özellik bulunmasa da prototip sayesinde özelliklerden yararlanırız.
+
+--CALLBACK NEDİR?
+Bir callback fonksiyonu diğer bir fonksiyon çalıştıktan sonra çalışır. Bir fonksiyonun argümanıdır.
+Öncelikle argümanı olduğu fonksiyon çalıştıktan sonra kendi çalışır.
+
+--JS HATALARI NELERDİR?
+Syntax error: Koddaki eksikler, yazım hataları gibi çalışmayı engelleyecek hatalardır.
+Logical error: Mantık yanlış olduğunda ortaya çıkar. Uygulama çalışır ancak elde edilen çıktılar yetersizdir.
+
+--RECURSION PROGLAMLAMA NEDİR?
+Bir sonuca ulaşılana kadar tekrar tekrar çağrılma tekniğidir.
+
+--CONSTRUCTOR FONKSİYONU NEDİR?
+Birbirine benzer özelliklerde birden çok nesne oluşturmak istediğimizde sınıfı tanımlarken constructor
+metodu tanımlar ve nesne oluştuğunda ilk o çalışır.
+
+--BELİRLİ BİR INDEX'TEKİ KARAKTERE NASIL ULAŞILIR?
+CharAt() 
+
+--BOM NEDİR?
+BOM = Browser Object Model. Kullanıcıların tarayıcı ile etkileşimini sağlar. 
+Tarayıcıların ilk nesnesi penceredir. Document, history gibi nitelikler burada bulunur.
+
+--JAVASCRIPT’IN ÖZELLİKLERİ NELERDİR?
+Açık kaynaklı, cross platform bir script dilidir.
+Tarayıcılar tarafından yorumlanır.
+
+--JAVASCRIPT’İN AVANTAJLARI NELERDİR?
+Kullanıcı inputları sunucuya istek atılmadan doğrulanabilir.
+Kullanıcıya geri dönüş hızlıdır
+Kullanıcıya interaktif bir deneyim kazandırır.
+
+--JAVASCRIPT CASE-SENSITIVE BİR DİL MİDİR?
+Evet büyük-küçük harfe duyarlıdır.
+
+--JAVASCRIPT’TE DİZİ NASIL OLUŞTURULUR?
+var x = [];
+var y = [1,2,3,4,5] 
+
+--BİR DEĞİŞKENİN SCOPELARI NELERDİR?
+Global değişkenler global scope’ta bulunmaktadır. 
+Bu da bu değişkene her yerde ulaşabildiğimiz anlamına gelir. Bir de local değişkenler bulunur.
+ Bu değişkenlere ise fonksiyon içerisinde erişilebilir.
+
+--CALLBACK NEDİR?
+Bir JavaScript fonksiyonuna bir başka fonksiyonun arguman olarak gelmesi.
+Başka bir fonksiyonun yürütülmesi tamamlandıktan sonra yürütülmeye başlar.
+
+--CLOSURE NEDİR?
+Bir fonksiyon kendi kapsamı dışında bir değişkeni kullanıyorsa ve bu fonksiyon başka kapsamda çalıştırılırsa
+yine de o değişkene erişim bulunmaktadır. 
+
+--METOTLAR VE DÖNDÜRDÜKLERI DEĞERLER
+ChatAt() : belirtilen indexteki karakteri döner
+Concat(): 2 veya daha fazla string’i birleştirir
+forEach(): Bir dizideki her elemanı dönerek bir fonksiyon çalıştırır
+indexOf(): Belirtilen koşulda bulduğu ilk nesnenin indeks numarasını döner
+length(): string’in uzunluğunu döner
+pop(): bir dizideki son elemanı çıkarır ve o elemanı döner
+push(): bir diziye yeni eleman(lar) ekler ve yeni dizinin uzunluğunu döner
+reverse(): dizideki sırayı tersine çevirir
+
+--JAVASCRIPT‘TE ARGUMAN NESNELERİ NEDİR VE BİR FONKSİYONUN ALDIĞI ARGÜMANLARIN TİPLERİNİ NASIL ALABİLİRİZ?
+Type of operatörü argümanların tiplerini almamızı sağlar. 
+
+--JAVASCRIPT KODU HTML DOSYASINA KAÇ FARKLI YOLLA ALINABİLİR?
+Inline, internal ve external. 
+Inline satır içerisinde kod yazmamızı sağlar. 
+Internal script tagları içerisine kodumuzu yazabiliriz.
+External ile source olarak dosyayı dışarıdan alıp entegre edebiliriz.
+
+--JAVASCRIPT KODUNDA HTML ELEMENTİNE ULAŞMA YOLLARI NELERDİR?
+getElementById(‘idname’) : elementi id si üzerinden yakalar
+getElementByClass(‘classname’) : elementi class I üzerinden yakalar
+getElementByTagName(‘tagname): elementi tag ismi üzerinden yakalar
+querySelector(): elementi id si, classı gibi birçok özelliği ile yakalamamızı sağlar.
+Argüman olarak aldığımız data neye göre almak istiyorsak önüne belirteç alır.
+
+--TÜM İÇERİĞİ İÇEREN JS KAYNAK DOSYALARINI BİR FONKSİYONA KOYMANIN SEBEBİ NEDİR?
+Giderek yaygınlaşan ve birçok JS kütüphanesinde olan bir tekniktir. 
+Tüm içerik için özel bir ad alanı oluşturur JS kütüphaneleri ile modüller arası olası çakışmaları önler.
+
+-- EXPORT VE IMPORT NEDIR?
+Moduler Js kodları yazmamızı sağlarlar. Bu sayede kodu çoklu dosyalara bölebiliriz.
+
+--JS’DE PROMPT BOX NEDİR?
+Kullanıcıdan girdi almamızı sağlayan bir metin kutusudur.
+
+--TYPE OF OPERATÖRÜ NASIL ÇALIŞIR?
+Bu operator verinin tipini öğrenmek için kullanılır. 
+Bu veri örneğin bir nesne, değişken ya da bir fonksiyon olabilir. 
+Tipini öğrenmek istediğimiz veriden önce koyarak işlemi gerçekleştirebiliriz.
+
+--ATTRIBUTE VE PROPERTY ARASINDAKİ FARK NEDİR?
+Attributelar eleman ile ilgili daha detaylı bilgi sağlarlar. Örn: id, type, value gibi
+Propertyler ise bu özelliklere verilen değerlerdir. Örn: type=“text“ veya value=”name” gibi
+
+--TYPED LANGUAGE NEDİR?
+Değişkenlerle değil değerlerle ilişkilendirme bulunmaktadır.
+Dinamik: bir değişken birden fazla tip taşıyabilir.
+Statik: Burada bir değişken sadece bir tip taşır.
+
+--LOCAL STORAGE İLE SESSION STORAGE ARASINDAKİ FARK NEDİR?
+Local storage’da data her http isteğinde sunucuya gönderilmez.
+Datalar tutulur ve manuel olarak silinene kadar bekletilir. Bu da client ve sunucu arasındaki trafiği azaltmaya yardımcı olur.
+Session storage da local storage’a benzemektedir.
+ Ancak locas storage’da dataların tutulması için belirli bir süre yoktur. Session’da ise sayfa sonlandırılınca datalar da silinir.
+
+--JAVASCRIPT KULLANILARAK COOKIE NASIL OLUŞTURULUR?
+En basit yolu document.cookie nesnesine string değer atamaktır.
+
+--JAVASCRIPT KULLANILARAK COOKIE NASIL SİLİNİR?
+Cookilerde expiration date bulunmaktadır. Bu tarihi geçmiş  bir zamana ayarlamalıyız.
+Bazı tarayıcılarda path belirtilmedikçe cookilerin silinmesine izin verilmez.
+
+--NULL VE UNDEFINED ARASINDAKİ FARK NEDİR?
+Undefined tanımlanmış ama değeri henüz atanmamış değişkendir. Null ise boş değerdir. Undefined başlı başına bir tip iken null geri dönüş tipi objedir.
+30-undeclared ve undefined arasındaki fark nedir?
+Undeclared değişkenler tanımlanmamış dolayısıyla programda bulunmamaktadır. Eğer bu değişkenin değeri program tarafından okunmaya çalışılırsa runtime hatası verir. Undefined ise tanımlanmış ama değer atanmamış değişkenleri ifade eder. Okunduğunda undefined döner.
+
+--JAVASCRIPT FRAMEWORKLERİ NELERDİR?
+Angular, react, vueJs
+
+--JAVASCRIPT’TE NAN NEDİR?
+Not a Number anlamına gelir. Sayıya eşit olmayan tiplerin sayıya eşitlendiği durumlarda ortaya çıkmaktadır. 
+
+--PRIMITIVE VE OBJECT TİPLERİNİN FONKSİYONLARDAN GEÇİŞİ ARASINDAKİ FARK NEDİR?
+Primitive ler değer ile geçerken objectler referans ile geçerler.
+
+--CALL&APPLY ARASINDAKİ FARK NEDİR?
+Call argüman olarak tekli eleman alır, apply ise dizi alır.
+
+--JAVASCRIPT’TEKİ WINDOW VE DOCUMENT ARASINDAKİ FARK NEDİR?
+Window fonksiyon, değişken, geçmiş, konum gibi unsurları barındıran global bir nesnedir.
+
+-INNERHTML VE INNERTEXT ARASINDAKİ FARK NEDİR?
+Inner html, html içeriğini alir. Innertext ise düz yazı olarak alır.
+
+
